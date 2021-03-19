@@ -1,0 +1,48 @@
+.about {
+  $this: &;
+
+  @include margin-top(( 'mob': 40px, 'xs': 58px, 'lg': 102px ));
+
+  &__title {
+    @extend %h2;
+  }
+
+  &__desc {
+    @include font(
+      ('mob': 14px, 'xs': 16px),
+      ('mob': 28px, 'xs': 32px),
+      400
+    );
+    @include margin-top(('mob': 2px, 'xs': 24px, 'lg': 21px));
+
+    max-width: 1235px;
+  }
+
+  &__row {
+    @include margin-top(('mob': 10px, 'xs': 60px, 'lg': 41px));
+
+    @media #{min-width-for('lg')} {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+    }
+  }
+
+  &__pride {
+    @include margin-top(('mob': 39px, 'md': 51px, 'lg': 0));
+    @include bp-change(grid-gap, ('mob': 20px, 'xs': 40px, 'lg': 30px));
+    @include bp-change(grid-template-rows, ('xs': repeat(2, 1fr)));
+
+    display: grid;
+  }
+
+  &__card {
+    @include height(('xs': 650px, 'md': 640px, 'lg': 620px));
+  }
+
+  &__tooltip {
+    display: inline-block;
+    margin: 0 4px;
+    transform: translateY(3px);
+  }
+}

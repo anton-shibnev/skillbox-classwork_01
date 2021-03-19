@@ -1,0 +1,6 @@
+.main {
+  @include bp-change(padding-top, $header-height);
+
+  position: relative;
+  overflow: hidden;
+}

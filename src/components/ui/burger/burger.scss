@@ -1,0 +1,49 @@
+.burger {
+  $this: &;
+  @include width(('mob': 25px, 'xs': 30px));
+  @include bp-change(grid-gap, ('mob': 5px, 'xs': 7px));
+  @include btn-reset;
+
+  display: grid;
+  height: auto;
+  position: relative;
+
+  &::after {
+    content: '';
+    @include wh(calc(100% + 20px));
+    @include abs-center();
+  }
+
+  &:hover {
+    #{$this}__line {
+      background-color: $primary;
+
+      &:nth-child(2) {
+        transform: scaleX(.9);
+      }
+      &:nth-child(3) {
+        transform: scaleX(.8);
+      }
+    }
+  }
+
+  &:active,
+  &--active {
+    #{$this}__line {
+      background-color: $primary-darker !important;
+      &:nth-child(2) {
+        transform: scaleX(.9);
+      }
+      &:nth-child(3) {
+        transform: scaleX(.8);
+      }
+    }
+  }
+  &__line {
+    @include wh(100%, 3px);
+
+    background-color: $dark;
+    transform-origin: 100% 0;
+    transition: background-color $trs, transform $trs;
+  }
+}

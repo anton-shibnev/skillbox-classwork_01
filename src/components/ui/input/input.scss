@@ -1,0 +1,8 @@
+.input {
+  $this: &;
+  width: 100%;
+
+  &__input {
+    @extend %input-textarea;
+  }
+}

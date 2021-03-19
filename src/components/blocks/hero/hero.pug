@@ -1,0 +1,17 @@
+include ../../ui/btn/btn.pug
+
+mixin hero()
+  include _data.pug
+  section.BEM_hero(aria-label='первый блок')
+    .container.__container
+        .swiper-container.__swiper
+          .swiper-wrapper
+            each slide in LIST
+              .swiper-slide
+                .__inner
+                  img.__pic(src=slide.src alt='')
+                  h1.__title(tabindex='0') Проектные решения любой сложности
+                  p.__desc Есть над чем задуматься: базовые сценарии поведения пользователей и по сей день остаются уделом проектантов
+                  .__btn
+                    +btn(aria-label='заказать расчёт проектного решения') Заказать расчёт
+          .swiper-pagination.__swiper-pagination

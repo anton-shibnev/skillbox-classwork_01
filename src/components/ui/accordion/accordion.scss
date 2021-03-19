@@ -1,0 +1,96 @@
+@import "~jquery-ui/themes/base/core.css";
+@import "~jquery-ui/themes/base/accordion.css";
+
+.accordion {
+  $this: &;
+  border-bottom: 1px solid $light-1;
+
+  &__btn {
+    @include btn-reset();
+    @include padding-y-arr((
+      'mob': (20px, 23px),
+      'xs': (33px, 26px),
+      'md': (41px, 32px),
+      'lg': (30px, 33px),
+    ));
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto;
+    grid-gap: 37px;
+    align-items: center;
+    border-top: 1px solid $light-1;
+    transition: border-color $trs;
+
+    &:hover {
+      border-color: $primary;
+
+      #{$this}__btn-text {
+        color: $primary;
+      }
+
+      #{$this}__btn-circle {
+        transform: rotate(45deg);
+        background-color: $light-3;
+      }
+    }
+  }
+
+  .ui-icon {
+    display: none !important;
+  }
+  .ui-accordion .ui-accordion-content {
+    padding: 0;
+  }
+
+  &__btn-text {
+    @include font(
+      ('mob': 14px, 'xs': 24px),
+      ('mob': 24px, 'xs': 32px),
+      ('mob': 500, 'xs': bold),
+    );
+
+    transition: color $trs;
+  }
+
+  &__btn-circle {
+    @include wh-arr((
+      'mob': 30px,
+      'xs': 50px,
+    ));
+
+    border-radius: 50%;
+    background-color: $light-2;
+    position: relative;
+    transition: transform $trs, background-color $trs;
+
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      @include wh-arr((
+        'mob': (1px, 18px),
+        'xs': (1px, 30px),
+      ));
+      @include abs-center();
+      background-color: $dark-2;
+      opacity: 0.7;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+
+  &__content {
+    padding: 0 0 40px !important;
+
+    p {
+      @include font(16px, 32px, normal);
+
+      &:not(:last-child) {
+        margin-bottom: 35px;
+      }
+    }
+  }
+}

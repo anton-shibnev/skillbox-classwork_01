@@ -1,0 +1,13 @@
+.how-block {
+  $this: &;
+
+  @include margin-top(('mob': 46px, 'xs': 61px, 'lg': 101px));
+
+  &__title {
+    @extend %h2;
+  }
+
+  &__tabs {
+    @include margin-top(('mob': 35px, 'xs': 49px));
+  }
+}

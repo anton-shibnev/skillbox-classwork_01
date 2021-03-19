@@ -1,0 +1,65 @@
+.modal-list {
+  $this: &;
+
+  @include padding(('mob': 66px 20px 80px));
+  @include bp-change(min-width, ('mob': 200px, 'xs': 300px, 'md': 420px));
+  @include height((
+    'mob': map-get($hero-height, 'mob') + map-get($header-height, 'mob') + 2px,
+    'xs': map-get($hero-height, 'xs') + map-get($header-height, 'xs') + 2px,
+    'md': map-get($hero-height, 'md') + map-get($header-height, 'md') + 2px,
+  ));
+  @include bp-change(right, ('mob': 0, 'xs': auto));
+  @include bp-change(left, ('xs': 0));
+  @include bp-change(transform, ('mob': translateX(101%), 'xs': translateX(-101%)));
+
+  background-color: $white;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  box-shadow: 0 20px 20px rgba($black, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform $trs;
+
+  &--active {
+    transform: translateX(0) !important;
+  }
+
+  &__list {
+    @include list-reset();
+    @include font(('mob': 16px, 'xs': 24px), ('mob': 20px, 'xs': 29px), bold);
+    @include bp-change(grid-gap, ('mob': 19px, 'xs': 70px));
+
+    display: grid;
+  }
+
+  &__close {
+    @include btn-reset();
+    @include wh(24px);
+    @include bp-change(right, ('mob': map-get($container-padding, 'mob'), 'xs': auto));
+    @include bp-change(left, ('xs': map-get($container-padding, 'xs'), 'md': map-get($container-padding, 'md')));
+    @include bp-change(top, ('mob': 13px, 'xs': 21px, 'md': 39px));
+
+    position: absolute;
+
+    &::after, &::before {
+      @include bp-change(background-color, ('mob': $light-4, 'xs': black));
+
+      content: '';
+      display: block;
+      width: 24px;
+      height: 3px;
+      position: absolute;
+      left: 50%;
+    }
+
+    &::after {
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    &::before {
+      transform: translateX(-50%) rotate(-45deg);
+    }
+  }
+}

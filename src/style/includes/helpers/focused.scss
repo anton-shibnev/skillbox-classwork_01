@@ -1,0 +1,5 @@
+%focused, .focused {
+  &:focus {
+    outline: 4px solid rgba($primary, .5);
+  }
+}

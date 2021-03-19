@@ -1,0 +1,19 @@
+include ../btn/btn.pug
+
+mixin tabs(list)
+  section.BEM_tabs
+    .__tab-list
+      each tab, i in list
+        button.__tab(type='button' class=`${i === 0 ? 'tabs__tab--active': ''}`)=tab.name
+    .__content
+      each tab, i in list
+        .__content-inner(class=`${i === 0 ? 'tabs__content-inner--active': ''}`)
+          img.__content-pic(alt="" src=tab.content.pic)
+          .__content-inner-wrap
+            h4.__content-title=tab.content.title
+            p.__content-desc=tab.content.desc
+            .__btn-group
+              .__btn
+                +btn(aria-label=`подробнее о том как мы ${tab.content.title}`) Подробнее
+              .__btn
+                +btn(class='btn--bordered-dark' aria-label=`договор ${tab.content.title}`) Договор

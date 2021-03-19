@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb/base",
+  "rules": {
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "error",
+    "arrow-parens": ["error", "always"],
+    "arrow-body-style": ["error", "as-needed"],
+    "linebreak-style": 0,
+    "import/no-unresolved": "off"
+  },
+  "globals": {
+    "document": false,
+    "window": false
+  }
+}

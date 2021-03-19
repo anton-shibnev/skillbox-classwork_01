@@ -1,0 +1,10 @@
+mixin radio(name, id, label=true)
+  .BEM_radio
+    input.__input(type='radio' name=name id=id)&attributes(attributes)
+    if (label)
+      label.__label(for=id)
+        .__circle
+          .__circle-icon
+            //include ../../../static/svg/check.svg
+        span.__content
+          block

@@ -1,0 +1,16 @@
+extends includes/layout
+include ../components/blocks/hero/hero.pug
+include ../components/blocks/about/about.pug
+include ../components/blocks/how-block/how-block.pug
+include ../components/blocks/faq/faq.pug
+include ../components/modal-list/modal-list.pug
+
+block title
+  title index
+
+block content
+  +hero()
+  +about()
+  +how-block()
+  +faq()
+  +modal-list()

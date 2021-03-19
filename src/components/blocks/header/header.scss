@@ -1,0 +1,130 @@
+.header {
+  $this: &;
+  @include bp-change(height, $header-height);
+  @include padding-y-arr(('mob': 7px));
+
+  max-height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: $white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+
+  &__inner {
+    @include bp-change(justify-content, ('xs': space-between));
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    @include bp-change(order, ('xs': 2, 'lg': 1));
+    @include svg-icon();
+    @include wh-arr((
+      'mob': (97px, 31px),
+      'xs': (150px, 47px),
+      'lg': (224px, 72px),
+    ));
+  }
+
+  &__list {
+    @include bp-change(display, ('mob': none, 'lg': grid));
+    @include bp-change(order, ('lg': 2));
+
+    @media #{min-width-for('xs')} {
+      @include list-reset();
+
+      grid-auto-flow: column;
+      grid-gap: 85px;
+      margin-left: auto;
+      padding-top: 7px;
+    }
+  }
+
+  &__list-item {
+    @include font(18px, 22px, 600);
+
+    position: relative;
+    transition: color $trs ease;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      height: 2px;
+      transform: scale(0.001);
+      background-color: $primary;
+      transition: transform $trs ease, background-color $trs ease;
+      transform-origin: left bottom;
+    }
+
+    &:hover {
+      &::after {
+        transform: scale(1);
+      }
+    }
+
+    &:active {
+      color: $primary-darker;
+
+      &::after {
+        background-color: $primary-darker;
+      }
+    }
+  }
+
+  &__burger {
+    @include bp-change(display, ('lg': none));
+    @include bp-change(order, ('xs': 1));
+    @include margin-left(('mob': auto));
+    @include margin-x-arr(( 'mob': (auto, 0), 'xs': 0, ));
+  }
+
+  &__search {
+    @include bp-change(display, ('mob': none, 'xs': block));
+    @include bp-change(order, ('xs': 3));
+    @include margin(('xs': 0 auto, 'lg': 7px 11px 0 73px));
+    svg {
+      rect {
+        transition: fill $trs;
+      }
+
+      circle {
+        transition: stroke $trs;
+      }
+    }
+
+    &:hover {
+      svg {
+        rect {
+          fill: $primary;
+        }
+        circle {
+          stroke: $primary;
+        }
+      }
+    }
+    &:active {
+      svg {
+        rect {
+          fill: $primary-darker;
+        }
+        circle {
+          stroke: $primary-darker;
+        }
+      }
+    }
+
+    @media #{min-width-for('xs')} {
+      @include btn-reset();
+      @include svg-icon(25px);
+    }
+  }
+}

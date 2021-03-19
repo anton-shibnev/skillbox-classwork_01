@@ -1,0 +1,10 @@
+$fonts-url: '../fonts';
+
+// =============================================================================
+// Muller
+// =============================================================================
+
+@include font-face('Montserrat', '#{$fonts-url}/Montserrat/Montserrat-ExtraBold', 800, normal, woff woff2);
+@include font-face('Montserrat', '#{$fonts-url}/Montserrat/Montserrat-Bold', bold, normal, woff woff2);
+@include font-face('Montserrat', '#{$fonts-url}/Montserrat/Montserrat-Regular', normal, normal, woff woff2);
+@include font-face('Montserrat', '#{$fonts-url}/Montserrat/Montserrat-SemiBold', 600, normal, woff woff2);

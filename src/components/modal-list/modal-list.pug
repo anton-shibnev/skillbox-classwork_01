@@ -1,0 +1,10 @@
+mixin modal-list()
+  include ../blocks/header/data.pug
+
+  section.BEM_modal-list#modalList
+    button.__close
+    .__inner
+      ul.__list
+        each item in HEADER_LIST
+          li.__item
+            a.__item-link(href=item.href)=item.name

@@ -1,0 +1,23 @@
+include vars
+include mixins
+include ../../components/blocks/app/app
+include ../../components/blocks/header/header
+include ../../components/blocks/main/main
+include ../../components/blocks/footer/footer
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    //script(src="https://code.jquery.com/jquery-1.12.4.js")
+    //script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+
+    block title
+      title title
+
+  +app()
+    +header()
+    +main()
+    +footer()

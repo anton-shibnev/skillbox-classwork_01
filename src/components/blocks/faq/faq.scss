@@ -1,0 +1,16 @@
+.faq {
+  $this: &;
+  @include margin-top(('mob': 39px, 'xs': 59px, 'lg': 101px));
+
+  &__title {
+    @include bp-change(letter-spacing, ('xs': -0.017em, 'md': 0));
+    @include margin-right(('xs': -10px));
+
+    margin-bottom: 0;
+  }
+
+  &__accordion-list {
+    @include list-reset();
+    @include margin-top(('mob': 13px, 'xs': 37px, 'lg': 37px));
+  }
+}

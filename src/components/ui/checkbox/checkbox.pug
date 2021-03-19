@@ -1,0 +1,9 @@
+mixin checkbox(name, id)
+  label.BEM_checkbox
+    input.__input(type='checkbox' name=name checked)
+    span.__label
+      span.__box
+        span.__box-icon
+          include ../../../static/svg/check.svg
+      span.__content
+        block

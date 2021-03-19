@@ -1,0 +1,61 @@
+@mixin padding-y($t, $b: $t) {
+  padding: {
+    bottom: $b;
+    top: $t;
+  };
+}
+
+@mixin padding-y-arr($arr) {
+  @each $bp-name, $val in $arr {
+    @if ($bp-name == 'mob') {
+      @include padding-y($val...);
+    }
+
+    @else {
+      @media #{min-width-for($bp-name)} {
+        @include padding-y($val...);
+      }
+    }
+  }
+}
+
+@mixin padding-x($l, $r: $l) {
+  padding: {
+    left: $l;
+    right: $r;
+  }
+}
+
+@mixin padding-x-arr($arr) {
+  @each $bp-name, $val in $arr {
+    @if ($bp-name == 'mob') {
+      @include padding-x($val...);
+    }
+
+    @else {
+      @media #{min-width-for($bp-name)} {
+        @include padding-x($val...);
+      }
+    }
+  }
+}
+
+@mixin padding($arr) {
+  @include bp-change(padding, $arr);
+}
+
+@mixin padding-left($arr) {
+  @include bp-change(padding-left, $arr);
+}
+
+@mixin padding-right($arr) {
+  @include bp-change(padding-right, $arr);
+}
+
+@mixin padding-top($arr) {
+  @include bp-change(padding-top, $arr);
+}
+
+@mixin padding-bottom($arr) {
+  @include bp-change(padding-bottom, $arr);
+}

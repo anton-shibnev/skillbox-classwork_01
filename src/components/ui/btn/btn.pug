@@ -1,0 +1,7 @@
+mixin btn(is='button')
+  if(is === 'a')
+    a(href="#").btn&attributes(attributes)
+      block
+  else
+    button.btn&attributes(attributes)
+      block

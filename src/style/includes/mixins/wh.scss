@@ -1,0 +1,26 @@
+@mixin wh($width, $height: $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin wh-arr($arr) {
+  @each $bp-name, $val in $arr {
+    @if ($bp-name == 'mob') {
+      @include wh($val...);
+    }
+
+    @else {
+      @media #{min-width-for($bp-name)} {
+        @include wh($val...);
+      }
+    }
+  }
+}
+
+@mixin height($arr) {
+  @include bp-change(height, $arr);
+};
+
+@mixin width($arr) {
+  @include bp-change(width, $arr);
+};

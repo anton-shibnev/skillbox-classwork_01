@@ -1,0 +1,42 @@
+include ../../ui/btn/btn
+include ../../ui/input/input
+include ../../ui/textarea/textarea
+include ../../ui/checkbox/checkbox
+include _data.pug
+
+mixin footer()
+  footer.BEM_footer
+    .container
+      .__row
+        .__col
+          form.__form
+            h2.__title(tabindex='0') Оставить заявку
+            .__input.--name
+              +input(placeholder="Фамилия, имя и отчество*" aria-label="введите Фамилия, имя и отчество")
+            .__input.--mail
+              +input(placeholder="E-mail*" aria-label="введите e-mail")
+            .__textarea
+              +textarea(placeholder="Сообщение" aria-label="введите сообщение")
+            .__btn
+              +btn() Отправить данные
+            .__checkbox()
+              +checkbox() Согласен на обработку данных
+          hr.__hr
+        .__col.--first
+          img.__logo(src="assets/images/footer/logo.png" alt="")
+          ul.__list
+            each item in LIST
+              li.__list-item
+                a.__list-item-link(href=item.href)=item.name
+          ul.__soc-list
+            li.__soc-item
+              a.__soc-item-link(href="#")
+                include ../../../static/svg/fb.svg
+            li.__soc-item
+              a.__soc-item-link(href="#")
+                include ../../../static/svg/vk.svg
+            li.__soc-item
+              a.__soc-item-link(href="#")
+                include ../../../static/svg/instagram.svg
+        .__col
+          p.__desc Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: разбавленное изрядной долей эмпатии, рациональное мышление позволяет оценить значение модели развития. Таким образом, консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании стандартных подходов.

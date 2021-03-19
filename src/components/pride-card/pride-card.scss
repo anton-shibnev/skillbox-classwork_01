@@ -1,0 +1,46 @@
+.pride-card {
+  $this: &;
+  @include padding((
+    'xs': 40px 28px 34px 32px,
+    'md': 69px 112px 65px 112px,
+    'lg': 71px 109px 65px 63px,
+  ));
+
+  @include bp-change(grid-gap, ('xs': 29px, 'md': 59px));
+
+  @media #{min-width-for('xs')} {
+    border: 1px solid $light-1;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  &__pic {
+    @include width((
+      'mob': 64px,
+      'xs': 118px,
+      'md': 178px
+    ));
+  }
+
+  &__text {
+    @include margin-top(('mob': 15px, 'xs': -3px));
+  }
+
+  &__title {
+    @include font(
+      ('mob': 18px, 'xs': 24px),
+      ('mob': 21.94px, 'xs': 29.26px),
+      ('mob': 400, 'xs': 700),
+    );
+  }
+
+  &__desc {
+    @include font(
+      ('mob': 14px, 'xs': 16px),
+      ('mob': 28px, 'xs': 32px),
+      400
+    );
+    @include margin-top(('mob': 5px, 'xs': 5px));
+  }
+}

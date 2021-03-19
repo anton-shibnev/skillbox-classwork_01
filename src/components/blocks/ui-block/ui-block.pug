@@ -1,0 +1,13 @@
+include ../../ui/checkbox/checkbox
+include ../../ui/radio/radio
+include ../../ui/input/input
+
+mixin ui-block()
+  section.BEM_ui-block()
+    .container
+      .__inner
+        +checkbox('checkbox', 'checkbox1') checkbox1
+        +checkbox('checkbox', 'checkbox2') checkbox2
+        hr
+        +radio('radio', 'radio1')(checked) radio1
+        +radio('radio', 'radio2') radio2

@@ -1,0 +1,9 @@
+include ../../ui/accordion/accordion.pug
+
+mixin faq()
+  section.BEM_faq(aria-label='секция часто задаваемые вопросы')
+    .__container.container
+      .__inner
+        h2.__title(tabindex='0') Часто задаваемые вопросы
+        .__accordion-list#accordionList
+          +accordion()

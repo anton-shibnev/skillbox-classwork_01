@@ -1,0 +1,17 @@
+// =============================================================================
+// pseudo
+// =============================================================================
+
+@mixin pseudo($name: after, $pos: absolute, $content: '') {
+  @if ($pos == absolute) {
+    position: relative;
+  }
+
+  &::#{$name} {
+    content: $content;
+    display: block;
+    position: $pos;
+    @content;
+  }
+}
+

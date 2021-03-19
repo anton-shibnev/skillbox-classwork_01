@@ -1,0 +1,5 @@
+.textarea {
+  @extend %input-textarea;
+  resize: vertical;
+  min-height: 150px;
+}

@@ -1,0 +1,11 @@
+include ../../ui/tabs/tabs.pug
+
+mixin how-block()
+  include _data.pug
+
+  section.BEM_how-block(aria-label='секция как мы работаем')
+    .__container.container
+      .__inner
+        h2.__title(tabindex='0') Как мы работаем
+        .__tabs
+          +tabs(LIST)

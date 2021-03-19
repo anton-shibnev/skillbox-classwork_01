@@ -1,0 +1,13 @@
+@mixin bp-change($style, $arr) {
+  @each $bp-name, $val in $arr {
+    @if ($bp-name == 'mob') {
+      #{$style}: $val;
+    }
+
+    @else {
+      @media #{min-width-for($bp-name)} {
+        #{$style}: $val;
+      }
+    }
+  }
+}

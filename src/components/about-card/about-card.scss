@@ -1,0 +1,63 @@
+.about-card {
+  $this: &;
+  width: 100%;
+  position: relative;
+
+  @media #{min-width-for('xs')} {
+    height: 100%;
+  }
+
+  &__pic {
+    @include height(('mob': 200px, 'xs': 100%));
+
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__wrap {
+    @include margin-top(('mob': 10px, 'xs': 0));
+    @include padding((
+      'mob': 40px 68px 40px 54px,
+      'xs': 26px 32px,
+      'md': 40px 44px,
+      'lg': 41px 68px 42px 53px,
+    ));
+    @include bp-change(grid-gap, ('xs': 33px, 'lg': 76px));
+
+    @media #{min-width-for('xs')} {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      right: 0;
+      background-color: rgba($black, 0.5);
+      display: grid;
+      align-items: center;
+      grid-auto-flow: column;
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  &__desc {
+    @include font(
+      ('mob': 14px, 'xs': 16px),
+      ('mob': 28px, 'xs': 31px),
+      ('mob': 400, 'xs': bold),
+    );
+
+    @media #{min-width-for('xs')} {
+      color: $white;
+    }
+  }
+
+  &__btn {
+    @include margin-top(('mob': 10px, 'xs': 0));
+
+    .btn {
+      @media #{min-width-for('xs')} {
+        background-color: rgba($white, 0);
+        color: $white;
+      }
+    }
+  }
+}

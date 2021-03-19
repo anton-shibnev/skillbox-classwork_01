@@ -1,0 +1,62 @@
+@mixin wider-init($m) {
+  @include margin-x(-$m);
+
+  width: calc(100% + (#{$m} * 2));
+}
+
+@mixin wider($n) {
+  @if type-of($n) == 'map' {
+    @each $bp-name, $val in $n {
+      @if ($bp-name == 'mob') {
+        @include wider-init($val);
+      }
+
+      @else {
+        @media #{min-width-for($bp-name)} {
+          @include wider-init($val);
+        }
+      }
+    }
+  }
+
+  @else if($n == false) {
+    @include margin-x(0);
+
+    width: auto;
+  }
+
+  @else {
+    @include wider-init($n);
+  }
+}
+
+@mixin p-wider($n) {
+  @if type-of($n) == 'map' {
+    @each $bp-name, $val in $n {
+      @if ($bp-name == 'mob') {
+        @include wider-init($val);
+        @include padding-x($val);
+      }
+
+      @else {
+        @media #{min-width-for($bp-name)} {
+          @include wider-init($val);
+          @include padding-x($val);
+        }
+      }
+    }
+  }
+
+  @else if($n == false) {
+    @include margin-x(0);
+    @include padding-x(0);
+
+    width: auto;
+  }
+
+  @else {
+    @include wider-init($n);
+    @include padding-x($n);
+  }
+}
+

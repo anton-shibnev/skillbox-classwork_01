@@ -1,0 +1,97 @@
+@import "~swiper/swiper";
+
+.hero {
+  $this: &;
+  @include margin-top(('mob': 2px, 'md': 0));
+
+  position: relative;
+
+  &__swiper {
+    @include wider(('xs': map-get($container-padding, 'xs'),'md': 0));
+  }
+
+  &__inner {
+    @include padding((
+      'mob': 31px 24px 40px,
+      'xs': 189px map-get($container-padding, 'xs') 115px,
+      'md': 160px 45px 114px,
+      'lg': 103px 78px 91px,
+    ));
+    @include height($hero-height);
+
+    position: relative;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+
+    @media #{min-width-for('xs')} {
+      text-align: left;
+      justify-items: left;
+      justify-content: left;
+    }
+
+    *:not(#{$this}__pic) {
+      position: relative;
+      z-index: 5;
+    }
+  }
+
+  &__pic {
+    @include abs-spread;
+    object-fit: cover;
+  }
+
+  &__title {
+    @extend %h1;
+    @include bp-change(max-width, ('xs': 840px));
+    @include margin-right(('xs': -30px, 'md': 0));
+
+    color: $white;
+  }
+
+  &__desc {
+    @extend %desc-2;
+    @include margin-top(('mob': 7px, 'xs': 10px, 'md': 10px, 'lg': 19px));
+    @include bp-change(max-width, ('xs': 840px));
+
+    color: $white;
+  }
+
+  &__btn {
+    @include margin-top(('mob': 35px, 'xs': 110px, 'lg': 99px));
+
+    .btn {
+      @include font(('mob': 12px, 'xs': 23.46px));
+      @include padding((
+        'mob': 9px 26px,
+        'xs': 30px 39px,
+        'lg': 30px 35px
+      ));
+    }
+  }
+
+  &__swiper-pagination {
+    @include abs-center(x);
+    @include bp-change(bottom, ('mob': 10px, 'xs': 30px));
+    @include bp-change(grid-gap, ('mob': 10px, 'xs': 20px));
+
+    display: grid;
+    grid-auto-flow: column;
+    z-index: 10;
+
+    .swiper-pagination-bullet {
+      @include circle(('mob': 10px, 'xs': 15px));
+      @include btn-reset();
+
+      transition: background-color $trs;
+      background-color: rgba($white, 0.4);
+      display: block;
+      cursor: pointer;
+
+      &.swiper-pagination-bullet-active {
+        background-color: rgba($white, 1);
+      }
+    }
+  }
+}

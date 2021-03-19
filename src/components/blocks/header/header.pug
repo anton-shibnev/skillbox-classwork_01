@@ -1,0 +1,17 @@
+include ../../ui/burger/burger.pug
+include data.pug
+
+mixin header()
+  header.BEM_header()
+    .container
+      .__inner
+        a(href='/' tabindex='0' aria-label='ссылка на главную страницу').__logo
+          img.__logo-pic(src='assets/images/header/logo.png' alt='логотип компании')
+        ul.__list(aria-label='навигация по странице')
+          each item in HEADER_LIST
+            li.__list-item
+              a(href=item.href)= item.name
+        button.__search(aria-label='кнопка найти')
+          include ../../../static/svg/search.svg
+        .__burger
+          +burger

@@ -1,0 +1,63 @@
+@mixin font-size($size) {
+  //font-size: rem($size);
+  font-size: rem($size);
+}
+
+@mixin font($size: false, $lh: false, $weight: false, $spacing: false, $family: false, $style: false) {
+  @if $size {
+    @if type-of($size) == 'map' {
+      @each $bp-name, $val in $size {
+        @if ($bp-name == 'mob') {
+          font-size: rem($val);
+        }
+
+        @else {
+          @media #{min-width-for($bp-name)} {
+            font-size: rem($val);
+          }
+        }
+      }
+    }
+
+    @else { font-size: rem($size); }
+  }
+
+  @if $lh {
+    @if type-of($lh) == 'map' {
+      @each $bp-name, $val in $lh {
+        @if ($bp-name == 'mob') {
+          line-height: rem($val);
+        }
+
+        @else {
+          @media #{min-width-for($bp-name)} {
+            line-height: rem($val);
+          }
+        }
+      }
+    }
+
+    @else { line-height: rem($lh); }
+  }
+
+  @if $weight {
+    @if type-of($weight) == 'map' {
+      @include bp-change(font-weight , $weight);
+    }
+
+    @else { font-weight: $weight; }
+  }
+
+  @if $spacing {
+    @if type-of($spacing) == 'map' {
+      @include bp-change(letter-spacing , $spacing);
+    }
+
+    @else { letter-spacing: $spacing; }
+  }
+
+  @if $family { font-family: $family; }
+
+  @if $style { font-style: $style; }
+}
+
